@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harlem Art House Collective - Building Community Through Creativity</title>
+    <meta name="description" content="HAHC: A community-centered arts organization empowering BIPOC artists with equitable compensation, accessible programming, and vibrant cultural experiences in Harlem.">
+    <meta name="theme-color" content="#FF6B35">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A28;
+            --accent: #004E89;
+            --accent-light: #0077B6;
+            --neutral-dark: #1a1a1a;
+            --neutral-light: #f5f5f5;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --success: #2ecc71;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Georgia', 'Garamond', serif;
+            color: var(--text-primary);
+            background: var(--neutral-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+            border-bottom: 3px solid transparent;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.9rem 2rem;
+            border-radius: 0;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--primary) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 8rem 5% 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: 5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-family: 'Georgia', serif;
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            line-height: 1.4;
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: white;
+            color: var(--primary) !important;
+            padding: 1.2rem 3rem;
+            font-family: 'Courier New', monospace;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 3px solid white;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .hero-cta:hover {
+            background: transparent;
+            color: white !important;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Mission Section */
+        .mission {
+            background: white;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .mission-text h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background: var(--neutral-light);
+            padding: 2rem;
+            border-left: 5px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15);
+        }
+
+        .value-card h4 {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Programs Section */
+        .programs {
+            background: var(--neutral-light);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 0;
+            border-top: 5px solid var(--primary);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2);
+        }
+
+        .program-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .program-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--accent);
+            color: white;
+            text-align: center;
+        }
+
+        .stats h2 {
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            padding: 2rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-family: 'Georgia', serif;
+            opacity: 0.9;
+        }
+
+        /* Events Section */
+        .events {
+            background: white;
+        }
+
+        .events-list {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .event-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            border-left: 4px solid var(--primary);
+            background: var(--neutral-light);
+            transition: all 0.3s ease;
+        }
+
+        .event-item:hover {
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.15);
+            transform: translateX(8px);
+        }
+
+        .event-date {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .event-content h4 {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .event-content p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Gallery/Artists Section */
+        .artists {
+            background: var(--neutral-light);
+        }
+
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .artist-card {
+            background: white;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
+        }
+
+        .artist-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .artist-info {
+            padding: 1.5rem;
+        }
+
+        .artist-info h4 {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .artist-info p {
+            font-size: 0.95rem;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .contact-method {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .contact-method h4 {
+            font-family: 'Courier New', monospace;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-method a {
+            color: white;
+            font-weight: 600;
+        }
+
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--neutral-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: var(--primary);
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 4rem 5% 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .mission-values {
+                grid-template-columns: 1fr;
+            }
+
+            .event-item {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid var(--neutral-light) !important;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">HAHC</div>
+            <ul class="nav-links">
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://github.com/harlemarthousecollective" class="cta-button" target="_blank">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Building Community Through Creativity</h1>
+            <p class="hero-subtitle">Harlem Art House Collective empowers emerging BIPOC artists with equitable compensation, accessible programming, and vibrant cultural experiences.</p>
+            <a href="#programs" class="hero-cta">Explore Our Work</a>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="section-header">
+            <h2>Our Mission</h2>
+            <p>Founded in 2024, HAHC creates platforms that support emerging artists while fostering accessibility, equity, and community engagement in the arts.</p>
+        </div>
+        
+        <div class="mission-grid">
+            <div class="mission-text">
+                <h3>Who We Are</h3>
+                <p>Located at 74 West 120th Street in Harlem, Harlem Art House Collective is a community-centered arts organization dedicated to transforming the cultural landscape. We believe that art is a powerful tool for social good and community building.</p>
+                <p>Our approach combines pop-up exhibitions, live performances, virtual auctions, and performance events that bring people together and celebrate the rich creative traditions of our community.</p>
+            </div>
+            
+            <div class="mission-values">
+                <div class="value-card">
+                    <h4>💰 Artist Equity</h4>
+                    <p>We ensure artists receive fair compensation—typically 34%+ of event revenue directly supports creators.</p>
+                </div>
+                <div class="value-card">
+                    <h4>🎭 Accessibility</h4>
+                    <p>Our sliding-scale pricing model ($1-$50+) ensures everyone can participate regardless of economic circumstances.</p>
+                </div>
+                <div class="value-card">
+                    <h4>🤝 Community First</h4>
+                    <p>We partner with local organizations and celebrate cultural traditions rooted in our community.</p>
+                </div>
+                <div class="value-card">
+                    <h4>🎨 Artistic Freedom</h4>
+                    <p>We create space for all artistic expression—music, visual arts, spoken word, fashion, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="section-header">
+            <h2>Our Programs</h2>
+            <p>A diverse range of cultural programming designed to celebrate artists and engage our community.</p>
+        </div>
+        
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-icon">🎤</div>
+                <h3>The Cypher</h3>
+                <p>Our flagship monthly artist showcase series featuring live music, poetry, spoken word, and open mic opportunities for emerging talent. A platform for community connection through diverse artistic expression.</p>
+            </div>
+            
+            <div class="program-card">
+                <div class="program-icon">🎨</div>
+                <h3>Pop-Up Exhibitions</h3>
+                <p>Dynamic exhibitions showcasing mixed-media work, street art, textiles, and contemporary pieces from BIPOC artists. These interactive experiences blend art appreciation with community engagement.</p>
+            </div>
+            
+            <div class="program-card">
+                <div class="program-icon">🌐</div>
+                <h3>Virtual Auctions</h3>
+                <p>Interactive auction experiences powered by community platforms, allowing both in-person and remote supporters to bid on original artwork while supporting nonprofit partners and artists.</p>
+            </div>
+            
+            <div class="program-card">
+                <div class="program-icon">🎬</div>
+                <h3>Performances & Events</h3>
+                <p>Live entertainment featuring musicians, poets, DJs, and performers. From intimate gatherings to larger community events, we create spaces where art and connection flourish.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <h2>Our Impact</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Community Members Engaged</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$2,000+</div>
+                <div class="stat-label">Raised for Community Causes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Artists Supported</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Nonprofit Partnerships</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="section-header">
+            <h2>Upcoming Events</h2>
+            <p>Join us for dynamic community experiences. Check back regularly for new announcements.</p>
+        </div>
+        
+        <div class="events-list">
+            <div class="event-item">
+                <div>
+                    <div class="event-date">Monthly</div>
+                </div>
+                <div class="event-content">
+                    <h4>The Cypher Series</h4>
+                    <p>Artist showcase featuring live performances, poetry, music, and open mic. 7 PM doors, diverse lineup, sliding-scale pricing.</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div>
+                    <div class="event-date">Ongoing</div>
+                </div>
+                <div class="event-content">
+                    <h4>DR Medical Mission Fundraising</h4>
+                    <p>Partner with HAHC to fundraise for our medical missions trip to the Dominican Republic. Sell tickets to our events and raise funds for an incredible cause.</p>
+                </div>
+            </div>
+            
+            <div class="event-item">
+                <div>
+                    <div class="event-date">TBA</div>
+                </div>
+                <div class="event-content">
+                    <h4>Special Programming</h4>
+                    <p>Fashion shows, theater productions, comedy nights, and collaborative cultural events. Stay tuned to social media for announcements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Artists -->
+    <section class="artists">
+        <div class="section-header">
+            <h2>Featured Artists</h2>
+            <p>Meet the creative visionaries who bring our community to life.</p>
+        </div>
+        
+        <div class="artists-grid">
+            <div class="artist-card">
+                <div class="artist-image">🎨</div>
+                <div class="artist-info">
+                    <h4>DOC (Dwight Colón)</h4>
+                    <p>Artist in Residence • Mixed Media • Street Art • Contemporary</p>
+                </div>
+            </div>
+            
+            <div class="artist-card">
+                <div class="artist-image">🎤</div>
+                <div class="artist-info">
+                    <h4>DJ Spidey (Jabria)</h4>
+                    <p>DJ • Producer • Musical Director</p>
+                </div>
+            </div>
+            
+            <div class="artist-card">
+                <div class="artist-image">🎵</div>
+                <div class="artist-info">
+                    <h4>Featured Performers</h4>
+                    <p>Musicians • Poets • Spoken Word Artists • Storytellers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Get In Touch</h2>
+        <p>Ready to collaborate, perform, or support the mission? We'd love to hear from you.</p>
+        
+        <div class="contact-methods">
+            <div class="contact-method">
+                <h4>📧 Email</h4>
+                <p><a href="mailto:harlemarthousecollective@gmail.com">harlemarthousecollective@gmail.com</a></p>
+            </div>
+            
+            <div class="contact-method">
+                <h4>📱 Phone</h4>
+                <p><a href="tel:+19299495239">(929) 949-5239</a></p>
+            </div>
+            
+            <div class="contact-method">
+                <h4>📍 Location</h4>
+                <p>74 West 120th Street<br>Harlem, New York, NY</p>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="https://instagram.com/harlemarthousecollective" target="_blank">Instagram</a>
+            <a href="https://hahc.betterworld.org" target="_blank">Virtual Exhibit</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Building community, empowering artists, changing the (art) world</strong></p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">© 2025 Harlem Art House Collective. All rights reserved.</p>
+    </footer>
+</body>
+</html>
